@@ -1,7 +1,7 @@
 version: '3.1'
 services:
     rhs:
-      image: ghcr.io/iden3/reverse-hash-service:latest
+      image: xavierromero/reverse-hash-service:latest
       restart: always
       environment:
         RHS_DB: "host=db password=${POSTGRES_PASSWORD:-secret} user=${POSTGRES_USER:-iden3} database=rhs"
@@ -24,7 +24,7 @@ services:
         POSTGRES_USER: "${POSTGRES_USER:-iden3}"
         POSTGRES_DB: rhs
       ports:
-        - 5432:5432
+        - 5433:5432
       volumes:
         - ./.postgres-data:/var/lib/postgresql/data
       networks:
